@@ -35,7 +35,7 @@ function Construct(options, callback) {
   self.widget = true;
   self.label = options.label || 'RSS Feed';
   self.css = options.css || 'rss';
-  self.icon = options.icon || 'rss';
+  self.icon = options.icon || 'icon-rss';
   self.sanitize = function(item) {
     if (!item.feed.match(/^https?\:\/\//)) {
       item.feed = 'http://' + item.feed;
