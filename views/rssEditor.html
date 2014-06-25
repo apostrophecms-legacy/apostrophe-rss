@@ -1,15 +1,15 @@
 {% extends "baseWidgetEditor.html" %}
 
-{% block widgetVars %}
-  {% set widgetClass = 'apos-rss-editor' %}
+{% block modalClass %}
+  {{super()}} apos-rss-editor
 {% endblock %}
 
-{% block title %}
-  Select RSS Feed
+{% block modalLabel %}
+  {{ __('Select RSS Feed') }}
 {% endblock %}
 
-{% block instructions %}
-  Paste an RSS feed URL.
+{% block modalInstructions %}
+  <p>{{ __('Paste an RSS feed URL.')}}</p>
 {% endblock %}
 
 {% block formBody %}
