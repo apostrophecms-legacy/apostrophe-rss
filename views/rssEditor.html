@@ -13,12 +13,21 @@
 {% endblock %}
 
 {% block formBody %}
-  <label>{{ __('Feed:') }} <input name="feed" class="apos-rss-feed" /></label>
+  <fieldset class="apos-fieldset apos-fieldset-text">
+    <label>{{ __('Feed:') }}</label>
+    <input name="feed" class="apos-rss-feed" />
+  </fieldset>
+  <fieldset class="apos-fieldset apos-fieldset-text">
+    <label>{{ __('Limit:') }}</label>
+    <input name="limit" class="apos-input-narrow" />
+  </fieldset>
+
+  {# <label>{{ __('Feed:') }} <input name="feed" class="apos-rss-feed" /></label>
   <label>{{ __('Limit:') }} <select name="limit">
     <option>1</option>
     <option>3</option>
     <option>5</option>
     <option>10</option>
     <option>20</option>
-  </select></label>
+  </select></label> #}
 {% endblock %}
