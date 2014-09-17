@@ -68,7 +68,8 @@ function Construct(options, callback) {
         return {
           title: article.title,
           body: article.description,
-          date: article.pubDate
+          date: article.pubDate,
+          link: article.link
         };
       });
       // Cache for fast access later
