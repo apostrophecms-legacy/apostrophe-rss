@@ -49,14 +49,22 @@ function Construct(options, callback) {
   };
 
   self.renderWidget = function(data) {
-    if (data.item._ajax) {
-      // We've decided to let the browser
-      // fetch this with a separate AJAX requet
+    try {
+      if (data.item._ajax) {
+        // We've decided to let the browser
+        // fetch this with a separate AJAX requet
+        return '';
+      } else {
+        // We're rendering it now, during the page load,
+        // server side
+        return self.render('rss', data);
+      }
+    } catch (e) {
+      // No fatal crashes on other people's bad data please
+      console.error('RSS feed rendering error:');
+      console.error(e);
+      console.error(data.item);
       return '';
-    } else {
-      // We're rendering it now, during the page load,
-      // server side
-      return self.render('rss', data);
     }
   };
 
