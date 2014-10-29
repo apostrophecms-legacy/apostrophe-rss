@@ -5,16 +5,11 @@ apos.widgetPlayers.rss = function($widget) {
     return;
   }
 
-  var feed = data.feed;
-  var limit = data.limit;
-
   $.get(
     '/apos-rss/render-feed',
-    {
-      feed: feed,
-      limit: limit
-    },
+    data,
     function(result) {
+      console.log(result);
       $widget.html(result);
     }
   );

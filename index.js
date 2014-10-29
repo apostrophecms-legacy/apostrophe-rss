@@ -69,12 +69,10 @@ function Construct(options, callback) {
   };
 
   app.get('/apos-rss/render-feed', function(req, res) {
-    var item = {
-      feed: apos.sanitizeString(req.query.feed),
-      limit: apos.sanitizeInteger(req.query.limit)
-    };
-    return self.loadFeed(item, function() {
-      return res.send(self.renderWidget({ item: item }));
+    self.sanitize(req.query);
+    delete req.query._ajax;
+    return self.loadFeed(req.query, function() {
+      return res.send(self.renderWidget({ item: req.query }));
     });
   });
 
