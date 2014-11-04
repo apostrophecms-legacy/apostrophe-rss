@@ -9,7 +9,6 @@ apos.widgetPlayers.rss = function($widget) {
     '/apos-rss/render-feed',
     data,
     function(result) {
-      console.log(result);
       $widget.html(result);
     }
   );
