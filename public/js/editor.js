@@ -25,7 +25,6 @@ function AposRssWidgetEditor(options) {
     self.$limit.val(self.data.limit || 10);
     setTimeout(function() {
       self.$feed.focus();
-      self.$feed.setSelection(0, 0);
     }, 500);
   };
 

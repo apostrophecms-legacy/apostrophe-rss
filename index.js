@@ -52,8 +52,11 @@ function Construct(options, callback) {
     try {
       if (data.item._ajax) {
         // We've decided to let the browser
-        // fetch this with a separate AJAX requet
-        return '';
+        // fetch this with a separate AJAX request.
+        // Provide a target div so we don't blow
+        // up the widget's controls by replacing the
+        // entire thing. -Tom
+        return '<div data-rss-content></div>';
       } else {
         // We're rendering it now, during the page load,
         // server side
