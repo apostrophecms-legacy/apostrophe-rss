@@ -1,6 +1,6 @@
 {
   "name": "apostrophe-rss",
-  "version": "0.5.19",
+  "version": "0.5.20",
   "description": "Adds an RSS feed widget to the Apostrophe content management system",
   "main": "index.js",
   "scripts": {

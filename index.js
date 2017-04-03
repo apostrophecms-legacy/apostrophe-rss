@@ -87,7 +87,6 @@ function Construct(options, callback) {
     if (self.currentInCache(key, Date.now())) {
       return self.loadFeed(item, callback);
     }
-    return self.loadFeed(item, callback);
     // It's not in the cache. Mark it as needing to be
     // loaded by the browser so we don't block the
     // rest of the page from loading now. We can do that
