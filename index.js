@@ -84,9 +84,10 @@ function Construct(options, callback) {
     var key = self.getKey(item);
     // If it's in the cache, "load" it now. Avoid a separate
     // AJAX request.
-    if (cache[key]) {
+    if (self.currentInCache(key, Date.now())) {
       return self.loadFeed(item, callback);
     }
+    return self.loadFeed(item, callback);
     // It's not in the cache. Mark it as needing to be
     // loaded by the browser so we don't block the
     // rest of the page from loading now. We can do that
@@ -101,9 +102,13 @@ function Construct(options, callback) {
     return JSON.stringify({ feed: item.feed, limit: item.limit });
   };
 
+  self.currentInCache = function(key, now) {
+    return cache[key] && ((cache[key].when + lifetime) > now);
+  };
+
   // Load the feed. Shared by self.load and the render-feed route
   self.loadFeed = function(item, callback) {
-
+    
     // Asynchronously load the actual RSS feed
     // The properties you add should start with an _ to denote that
     // they shouldn't become data attributes or get stored back to MongoDB
@@ -116,13 +121,13 @@ function Construct(options, callback) {
     var key = self.getKey(item);
 
     // If we already have it, deliver it
-    if (cache[key] && ((cache[key].when + lifetime) > now)) {
+    if (self.currentInCache(key, now)) {
       item._entries = cache[key].data;
       item._failed = cache[key].failed;
       return callback();
     }
 
-    // If we're already waiting for it, wait for it
+    // If we're already waiting for it, join the queue
     if (pending[key]) {
       pending[key].push({
         item: item,
