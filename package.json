@@ -8,15 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/punkave/apostrophe-rss.git"
+    "url": "git://github.com/apostrophecms-legacy/apostrophe-rss.git"
   },
   "keywords": [
     "apostrophe",
     "jot",
-    "rich",
-    "text",
-    "rich",
-    "content",
+    "rich text",
+    "rich content",
     "rss"
   ],
   "author": "P'unk Avenue punkave.com",
