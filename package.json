@@ -20,7 +20,6 @@
   "author": "P'unk Avenue punkave.com",
   "license": "MIT",
   "dependencies": {
-    "extend": "~1.1.3",
     "feedparser": "~0.11.0",
     "lodash": "^2.4.1"
   },
