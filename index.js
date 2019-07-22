@@ -107,7 +107,7 @@ function Construct(options, callback) {
 
   // Load the feed. Shared by self.load and the render-feed route
   self.loadFeed = function(item, callback) {
-    
+
     // Asynchronously load the actual RSS feed
     // The properties you add should start with an _ to denote that
     // they shouldn't become data attributes or get stored back to MongoDB
