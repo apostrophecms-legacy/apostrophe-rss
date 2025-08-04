@@ -1,3 +1,5 @@
+⛔️ **Deprecated** — do not use for new projects, see [our current docs](https://docs.apostrophecms.org/)
+
 # apostrophe-rss
 
 NOT CURRENTLY FOR NEW PROJECTS
